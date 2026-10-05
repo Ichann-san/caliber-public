@@ -1,0 +1,45 @@
+/* Filled chip: workflow status. Provenance labels use an outlined chip so the two never read alike. */
+.label {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 1.5rem;
+  padding: 0.125rem var(--space-2);
+  border-radius: var(--radius-chip);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.neutral {
+  background: var(--tone-neutral-tint);
+  color: var(--tone-neutral-text);
+}
+
+.info {
+  background: var(--tone-info-tint);
+  color: var(--tone-info-text);
+}
+
+.progress {
+  background: var(--tone-progress-tint);
+  color: var(--tone-progress-text);
+}
+
+.attention {
+  background: var(--tone-attention-tint);
+  color: var(--tone-attention-text);
+}
+
+.success {
+  background: var(--tone-success-tint);
+  color: var(--tone-success-text);
+}
+
+.warning {
+  background: var(--tone-warning-tint);
+  color: var(--tone-warning-text);
+}

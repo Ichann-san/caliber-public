@@ -1,0 +1,271 @@
+/* ---------- Layout ---------- */
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100dvh;
+  background: var(--color-page);
+}
+
+.sidebarRole { min-width: 0; padding-inline: var(--space-2); }
+.user { display: flex; align-items: center; gap: var(--space-3); min-width: 0; margin-inline: var(--space-2); padding: var(--space-3); border: 1px solid var(--color-line); border-radius: var(--radius-control); color: var(--color-heading); }
+.user > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+.user strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.userLabel { color: var(--color-text-secondary); font-size: var(--text-xs); }
+.userAvatar { display: block; flex: 0 0 2rem; width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover; }
+.mobileMenu { display: grid; gap: var(--space-6); }
+.menuButton { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--control-height); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-line); border-radius: var(--radius-control); background: var(--color-surface); color: var(--color-action); font: inherit; cursor: pointer; }
+
+.column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-8) var(--space-8);
+  min-width: 0;
+}
+
+.main:focus {
+  outline: none;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100dvh;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-line);
+  overflow-y: auto;
+  z-index: var(--z-nav);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-inline: var(--space-3);
+}
+
+.brandLogo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  background: var(--color-brand-backdrop);
+  border-radius: var(--radius-chip);
+}
+
+.workspace {
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.nav {
+  flex: 1;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.navItem {
+  min-width: 0;
+}
+
+.navLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--control-height);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-control);
+  color: var(--color-nav);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.navLink:hover {
+  background: var(--color-fill-subtle);
+  color: var(--color-nav);
+}
+
+/* Active: bold text on a restrained blue tint. */
+.navActive,
+.navActive:hover {
+  background: var(--color-action-tint);
+  font-weight: var(--weight-bold);
+}
+
+.navIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.navIcon > * {
+  width: 100%;
+  height: 100%;
+}
+
+.navLabel {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: var(--leading-snug);
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  display: none;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.topBrandLogo {
+  display: none;
+  background: var(--color-brand-backdrop);
+  border-radius: var(--radius-chip);
+}
+
+/* ---------- Tablet: narrower rail with labels ---------- */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .shell {
+    grid-template-columns: 13rem minmax(0, 1fr);
+  }
+
+  .sidebar {
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-2);
+  }
+
+  .brand {
+    padding-inline: var(--space-2);
+    text-align: center;
+  }
+
+  .brandLogo {
+    max-width: 10.5rem;
+    margin-inline: auto;
+  }
+
+  .navLink {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-1);
+    min-height: 3.5rem;
+    padding: var(--space-2);
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+
+  .topbar {
+    padding-inline: var(--space-6);
+  }
+
+  .main {
+    padding: var(--space-6);
+  }
+}
+
+/* ---------- Mobile: top bar + fixed bottom navigation ---------- */
+@media (max-width: 767.98px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    padding: 0 0 env(safe-area-inset-bottom, 0px);
+    gap: 0;
+    border-right: 0;
+    border-top: 1px solid var(--color-line);
+    overflow: visible;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .navList {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .navItem {
+    flex: 1 1 0;
+  }
+
+  .navLink {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.125rem;
+    min-height: var(--bottom-nav-height);
+    padding: var(--space-1);
+    border-radius: 0;
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+
+  .navLabel {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: normal;
+    word-break: break-word;
+  }
+
+  .navLink:focus-visible {
+    outline-offset: -2px;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--gutter);
+  }
+
+  .topBrandLogo {
+    display: block;
+    width: min(9.5rem, 48vw);
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .main {
+    padding: var(--space-5) var(--gutter);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + var(--space-8));
+  }
+}
+
+.mobileMenu .navList { flex-direction: column; }
+.mobileMenu .navLink { flex-direction: row; justify-content: flex-start; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-control); text-align: left; }

@@ -1,0 +1,31 @@
+.switcher {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  width: 100%;
+  max-width: 24rem;
+}
+
+.roleDetail { display: grid; gap: var(--space-1); margin: var(--space-1) 0 0; color: var(--color-text); font-size: var(--text-xs); overflow-wrap: anywhere; }
+.roleDetail span { color: var(--color-text-secondary); }
+
+.labelRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+}
+
+.label {
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+@media (max-width: 767.98px) {
+  .switcher {
+    max-width: none;
+  }
+
+}

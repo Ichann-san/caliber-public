@@ -1,0 +1,65 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.scope {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* One bordered panel; cells separated by hairlines, all at the same weight. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+}
+
+.cell {
+  display: grid;
+  min-width: 0;
+  padding: var(--space-3);
+  box-shadow:
+    inset -1px 0 0 var(--color-line),
+    inset 0 -1px 0 var(--color-line);
+}
+
+.cell .overviewMetric {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 6.5rem;
+  text-align: center;
+}
+
+.cell .overviewMetric > :nth-child(2) {
+  align-self: center;
+  justify-content: center;
+}
+
+.empty {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 767.98px) {
+  .grid {
+    grid-template-columns: repeat(5, minmax(9rem, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+
+  .cell {
+    padding: var(--space-3);
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) { .grid { grid-template-columns: repeat(5, minmax(10rem, 1fr)); overflow-x: auto; } }

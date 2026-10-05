@@ -1,0 +1,13 @@
+.field { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.label { color: var(--color-heading); font-size: var(--text-sm); font-weight: var(--weight-semibold); }
+.dropdown { position: relative; min-width: 0; }
+.menu { min-width: min(18rem, 90vw); max-height: none; overflow: visible; }
+.searchLabel { display: block; margin-bottom: var(--space-1); font-size: var(--text-xs); }
+.search { width: 100%; min-height: var(--control-height); padding: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius-control); font: inherit; }
+.search:focus-visible, .option input:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.options { max-height: 12rem; overflow-y: auto; padding-top: var(--space-2); }
+.option { display: flex; align-items: flex-start; gap: var(--space-2); padding: var(--space-2); border-radius: calc(var(--radius-control) - 2px); cursor: pointer; font-size: var(--text-sm); }
+.option:hover { background: var(--color-action-tint); }
+.option input { margin-top: .2rem; }
+.hint, .empty { margin: 0; color: var(--color-text-secondary); font-size: var(--text-xs); }
+.error { margin: 0; color: var(--tone-attention-text); font-size: var(--text-xs); }

@@ -1,0 +1,16 @@
+.breakdown { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; min-height: 0; height: 100%; padding: var(--space-4); background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-panel); }
+.title { font-size: var(--text-md); line-height: var(--leading-tight); }
+.content { display: grid; grid-template-columns: minmax(6.5rem, 42%) minmax(0, 1fr); align-items: center; gap: var(--space-3); min-height: 0; flex: 1 1 auto; }
+.chart { position: relative; width: 100%; max-width: 11rem; aspect-ratio: 1; align-self: center; justify-self: center; }
+.pie { display: block; width: 100%; height: 100%; }
+.pie circle { cursor: pointer; transition: filter var(--duration-fast) var(--ease-out), stroke-width var(--duration-fast) var(--ease-out); }
+.pie circle:hover, .pie circle:focus-visible { stroke-width: 20; filter: brightness(1.08) drop-shadow(0 0 2px var(--color-chart-hover)); outline: none; }
+.total { position: absolute; inset: 28%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-text-secondary); font-size: var(--text-xs); line-height: 1.2; pointer-events: none; text-align: center; }
+.total strong { color: var(--color-chart-center); font-size: var(--text-xl); font-variant-numeric: tabular-nums; }
+.list { min-height: 0; max-height: 100%; overflow-y: auto; scrollbar-gutter: stable; overscroll-behavior: contain; display: flex; flex-direction: column; list-style: none; }
+.list:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: var(--space-2); padding: var(--space-2) 0; border-bottom: 1px solid var(--color-line); font-size: var(--text-sm); }
+.label { display: flex; align-items: baseline; gap: var(--space-2); min-width: 0; color: var(--color-text); overflow-wrap: anywhere; }
+.marker { width: .65rem; height: .65rem; border-radius: 2px; flex: 0 0 auto; }
+.count { color: var(--color-text); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
+.empty { color: var(--color-text-secondary); }

@@ -1,0 +1,30 @@
+{
+  "name": "caliber2026-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "start:host": "next start --hostname 0.0.0.0",
+    "db:local": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/seed/start-local-postgres.ps1",
+    "db:create": "node scripts/seed/create-local-database.mjs",
+    "db:seed": "node scripts/seed/database.mjs"
+  },
+  "dependencies": {
+    "@next/env": "16.3.8",
+    "@phosphor-icons/react": "2.1.10",
+    "next": "16.3.8",
+    "pg": "8.23.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.0",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2"
+  }
+}

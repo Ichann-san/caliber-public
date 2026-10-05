@@ -1,0 +1,135 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0.125rem var(--space-2);
+  background: var(--tone-neutral-tint);
+  border-radius: var(--radius-chip);
+  color: var(--tone-neutral-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.applicability {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0.125rem var(--space-2);
+  background: var(--tone-attention-tint);
+  border: 1px dashed var(--tone-attention-line);
+  border-radius: var(--radius-chip);
+  color: var(--tone-attention-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+.text {
+  max-width: var(--measure);
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.owner,
+.reason,
+.rule {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+
+.ownerLabel {
+  color: var(--color-text-secondary);
+}
+
+.empty {
+  color: var(--color-text-secondary);
+}
+
+/* Withheld: separate neutral panel, no applicability label, no action controls. */
+.withheld {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-page);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-panel);
+}
+
+.withheldTitle {
+  font-size: var(--text-md);
+}
+
+.withheldIntro {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+.withheldList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.withheldItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.withheldItem:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.withheldText {
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+}
+
+.ruleId {
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767.98px) {
+  .withheld {
+    padding: var(--space-4);
+  }
+}

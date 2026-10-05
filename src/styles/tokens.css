@@ -1,0 +1,257 @@
+/*
+ * CALIBER Gate 5 design tokens.
+ *
+ * Palette: PM palette (Indigo, Blue, Cyan, Onyx, White) with one cool neutral
+ * family tinted toward indigo. Component styles consume semantic roles below;
+ * the dark palette overrides those roles without per-component theme rules.
+ *
+ * Contrast notes (checked against white unless stated):
+ *   Indigo #1A2C5B 13.5:1, Blue #1F619F 6.42:1, Onyx #121212 18.7:1,
+ *   secondary text #5A6478 5.95:1 (5.59:1 on page background).
+ *   Cyan #3ABBD5 is 2.27:1: decorative accent ONLY. Never use it for text,
+ *   meaningful icons or focus rings. Allowed: chart accents and subtle
+ *   backgrounds behind Indigo text (cyan tint).
+ *
+ * Tone pairs (text on tint, all >= 4.5:1):
+ *   neutral 7.03, info 5.63, progress 11.73, attention 7.15,
+ *   success 5.74, warning 6.81.
+ *
+ * Breakpoints (media queries cannot read custom properties; use literals):
+ *   mobile  < 768px          @media (max-width: 767.98px)
+ *   tablet  768px - 1023px   @media (min-width: 768px) and (max-width: 1023.98px)
+ *   desktop >= 1024px        @media (min-width: 1024px)
+ */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- Brand palette ---------- */
+  --color-indigo: #1a2c5b;
+  --color-blue: #1f619f;
+  --color-blue-hover: #174c7e;
+  --color-blue-active: #123d66;
+  --color-cyan: #3abbd5;
+  --color-onyx: #121212;
+  --color-white: #ffffff;
+
+  /* ---------- Neutral family (cool, tinted toward indigo) ---------- */
+  --color-neutral-50: #f6f8fb; /* page background */
+  --color-neutral-100: #eef1f6; /* subtle fill */
+  --color-neutral-200: #dde3ec; /* hairline */
+  --color-neutral-300: #c7cfdc; /* stronger hairline */
+  --color-neutral-500: #7d889c; /* control border, >= 3:1 on white */
+  --color-neutral-600: #5a6478; /* secondary text */
+  --color-neutral-700: #475166; /* neutral tone text */
+
+  /* ---------- Semantic roles ---------- */
+  --color-nav: var(--color-indigo);
+  --color-heading: var(--color-indigo);
+  --color-action: var(--color-blue);
+  --color-action-hover: var(--color-blue-hover);
+  --color-action-active: var(--color-blue-active);
+  --color-on-action: var(--color-white);
+  --color-accent: var(--color-cyan);
+  --color-text: var(--color-onyx);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-surface: var(--color-white);
+  --color-page: var(--color-neutral-50);
+  --color-fill-subtle: var(--color-neutral-100);
+  --color-line: var(--color-neutral-200);
+  --color-line-strong: var(--color-neutral-300);
+  --color-control-border: var(--color-neutral-500);
+  --color-action-tint: #eaf1f8; /* light blue tint: active nav, hover rows */
+  --color-accent-tint: #ddf3f8; /* cyan tint, only behind Indigo text */
+  --color-focus: var(--color-blue);
+  --color-selection: #cfe0f1;
+  --color-backdrop: rgb(26 44 91 / 0.32);
+  --color-scrollbar: var(--color-indigo);
+  --color-scrollbar-hover: var(--color-blue);
+  --color-chart-center: var(--color-indigo);
+  --color-chart-hover: var(--color-indigo);
+  --color-chart-1: #1a2c5b;
+  --color-chart-2: #1f619f;
+  --color-chart-3: #267d96;
+  --color-chart-4: #3f6d6a;
+  --color-chart-5: #75539b;
+  --color-chart-6: #a05468;
+  --color-chart-7: #8c6830;
+  --color-chart-8: #3b7986;
+  --color-chart-9: #686a92;
+  --color-chart-10: #8d516a;
+  --color-chart-11: #496d48;
+  --color-chart-12: #4c567a;
+  --color-chart-unrecorded: #c7cfdc;
+  --color-timeline-source: var(--color-indigo);
+  --color-timeline-action: var(--color-blue);
+  --color-brand-backdrop: transparent;
+
+  /* ---------- Tones (StatusView, ProvenanceLabelView) ---------- */
+  --tone-neutral-text: #475166;
+  --tone-neutral-tint: #eef1f6;
+  --tone-neutral-line: #c7cfdc;
+
+  --tone-info-text: #1f619f;
+  --tone-info-tint: #e9f1f9;
+  --tone-info-line: #a9c5e2;
+
+  --tone-progress-text: #1a2c5b;
+  --tone-progress-tint: #ddf3f8;
+  --tone-progress-line: #8fd3e3;
+
+  --tone-attention-text: #8c2f39;
+  --tone-attention-tint: #fbedee;
+  --tone-attention-line: #e5b3b9;
+
+  --tone-success-text: #1d6a45;
+  --tone-success-tint: #e5f3eb;
+  --tone-success-line: #a6d3bb;
+
+  /* warning = source conflict / data uncertainty only */
+  --tone-warning-text: #7a4708;
+  --tone-warning-tint: #fbf0de;
+  --tone-warning-line: #e6c58f;
+
+  /* ---------- Typography ---------- */
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", monospace;
+  --font-numeric: tabular-nums;
+
+  --text-xs: 0.75rem; /* 12px: labels, captions */
+  --text-sm: 0.8125rem; /* 13px: secondary text */
+  --text-base: 0.875rem; /* 14px: body */
+  --text-md: 1rem; /* 16px: emphasised body, inputs on mobile */
+  --text-lg: 1.125rem; /* 18px: h3, card titles */
+  --text-xl: 1.375rem; /* 22px: h2, metric values */
+  --text-2xl: 1.75rem; /* 28px: h1 */
+
+  --leading-tight: 1.25;
+  --leading-snug: 1.4;
+  --leading-normal: 1.55;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.04em;
+
+  --measure: 70ch;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-1: 0.25rem; /* 4 */
+  --space-2: 0.5rem; /* 8 */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem; /* 16 */
+  --space-5: 1.25rem; /* 20 */
+  --space-6: 1.5rem; /* 24 */
+  --space-8: 2rem; /* 32 */
+  --space-10: 2.5rem; /* 40 */
+  --space-12: 3rem; /* 48 */
+  --space-16: 4rem; /* 64 */
+
+  --gutter: var(--space-4); /* mobile side gutter */
+
+  /* ---------- Radius (the only three) ---------- */
+  --radius-panel: 12px; /* panels, cards, drawers */
+  --radius-control: 8px; /* buttons, inputs, selects */
+  --radius-chip: 6px; /* chips, labels, small markers */
+
+  /* ---------- Elevation ---------- */
+  --shadow-overlay: 0 12px 40px rgb(26 44 91 / 0.18), 0 2px 8px rgb(26 44 91 / 0.08);
+  --shadow-tooltip: 0 6px 18px rgb(26 44 91 / 0.16);
+
+  /* ---------- Sizes ---------- */
+  --control-height: 2.5rem; /* 40px: touch target floor */
+  --control-height-sm: 2rem;
+  --sidebar-width: 15rem; /* desktop */
+  --rail-width: 8.5rem; /* tablet */
+  --bottom-nav-height: 3.75rem; /* mobile, excluding safe area */
+  --content-max: 82rem;
+
+  /* ---------- Z-index ---------- */
+  --z-base: 0;
+  --z-raised: 1;
+  --z-sticky: 10;
+  --z-nav: 20;
+  --z-overlay: 40;
+  --z-skip: 50;
+
+  /* ---------- Motion ---------- */
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 260ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Theme is selected before hydration and can be changed in the workspace. */
+:root[data-theme="dark"] {
+  --color-nav: #d7e9ff;
+  --color-heading: #f2f7ff;
+  --color-action: #8fd4f0;
+  --color-action-hover: #b3e5f5;
+  --color-action-active: #d0f0fa;
+  --color-on-action: #10233f;
+  --color-accent: #3abbd5;
+  --color-text: #edf3fb;
+  --color-text-secondary: #b6c6db;
+  --color-surface: #182742;
+  --color-page: #0e192e;
+  --color-fill-subtle: #243653;
+  --color-line: #354966;
+  --color-line-strong: #536985;
+  --color-control-border: #8497b0;
+  --color-action-tint: #234666;
+  --color-accent-tint: #214858;
+  --color-focus: #a6e2f5;
+  --color-selection: #31577b;
+  --color-backdrop: rgb(2 9 22 / 0.72);
+  --color-scrollbar: #8fc7e8;
+  --color-scrollbar-hover: #b3e5f5;
+  --color-chart-center: #f2f7ff;
+  --color-chart-hover: #f2f7ff;
+  --color-chart-1: #8fd4f0;
+  --color-chart-2: #c4a7f0;
+  --color-chart-3: #76d5c3;
+  --color-chart-4: #ecb37d;
+  --color-chart-5: #f08fa8;
+  --color-chart-6: #b8c87a;
+  --color-chart-7: #a9baf2;
+  --color-chart-8: #e6b3d0;
+  --color-chart-9: #83b8a6;
+  --color-chart-10: #e0cb89;
+  --color-chart-11: #bdabd9;
+  --color-chart-12: #97ced4;
+  --color-chart-unrecorded: #687d99;
+  --color-timeline-source: #a9c5f2;
+  --color-timeline-action: #8fd4f0;
+  --color-brand-backdrop: #ffffff;
+  --tone-neutral-text: #d1dceb;
+  --tone-neutral-tint: #2d3d58;
+  --tone-neutral-line: #647994;
+  --tone-info-text: #a8d6fb;
+  --tone-info-tint: #1f3b5c;
+  --tone-info-line: #5f91bd;
+  --tone-progress-text: #b6e9f3;
+  --tone-progress-tint: #224653;
+  --tone-progress-line: #609ca9;
+  --tone-attention-text: #ffb9c2;
+  --tone-attention-tint: #542b3b;
+  --tone-attention-line: #b76b7c;
+  --tone-success-text: #a9e8c5;
+  --tone-success-tint: #244b3c;
+  --tone-success-line: #69ae8a;
+  --tone-warning-text: #f4d69e;
+  --tone-warning-tint: #51422b;
+  --tone-warning-line: #a98d59;
+  --shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.36), 0 2px 8px rgb(0 0 0 / 0.2);
+  --shadow-tooltip: 0 6px 18px rgb(0 0 0 / 0.34);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

@@ -1,0 +1,89 @@
+/* Tint + 1px full border in the tone line colour. No thick side border. */
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid;
+  border-radius: var(--radius-control);
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-top: 0.0625rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  overflow-wrap: anywhere;
+}
+
+.body {
+  max-width: var(--measure);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  overflow-wrap: anywhere;
+}
+
+.action {
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.neutral {
+  background: var(--tone-neutral-tint);
+  border-color: var(--tone-neutral-line);
+  color: var(--tone-neutral-text);
+}
+
+.info {
+  background: var(--tone-info-tint);
+  border-color: var(--tone-info-line);
+  color: var(--tone-info-text);
+}
+
+.progress {
+  background: var(--tone-progress-tint);
+  border-color: var(--tone-progress-line);
+  color: var(--tone-progress-text);
+}
+
+.attention {
+  background: var(--tone-attention-tint);
+  border-color: var(--tone-attention-line);
+  color: var(--tone-attention-text);
+}
+
+.success {
+  background: var(--tone-success-tint);
+  border-color: var(--tone-success-line);
+  color: var(--tone-success-text);
+}
+
+.warning {
+  background: var(--tone-warning-tint);
+  border-color: var(--tone-warning-line);
+  color: var(--tone-warning-text);
+}
+
+@media (max-width: 767.98px) {
+  .notice {
+    flex-wrap: wrap;
+  }
+
+  .action {
+    flex-basis: 100%;
+    align-self: flex-start;
+    padding-left: calc(20px + var(--space-3));
+  }
+}

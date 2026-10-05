@@ -1,0 +1,5 @@
+/* Integrator entrypoint. FE workspace/layout.tsx imports its owned
+   @/styles/tokens.css then @/styles/base.css once those files are present.
+   Keep this standalone scaffold runnable before the FE branch is merged. */
+html { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+body { margin: 0; }

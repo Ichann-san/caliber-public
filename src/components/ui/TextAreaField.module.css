@@ -1,0 +1,11 @@
+.field { composes: field from "./Field.module.css"; }
+.label { composes: label from "./Field.module.css"; }
+.required { composes: required from "./Field.module.css"; }
+.hint { composes: hint from "./Field.module.css"; }
+.control { composes: control from "./Field.module.css"; display: block; min-height: 6rem; resize: vertical; }
+.invalid { composes: invalid from "./Field.module.css"; }
+.error { composes: error from "./Field.module.css"; }
+.errorIcon { composes: errorIcon from "./Field.module.css"; }
+.footer { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-1) var(--space-4); }
+.counter { margin-left: auto; color: var(--color-text-secondary); font-size: var(--text-sm); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.counterLimit { color: var(--tone-attention-text); font-weight: var(--weight-semibold); }

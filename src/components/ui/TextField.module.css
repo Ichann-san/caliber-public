@@ -1,0 +1,8 @@
+.field { composes: field from "./Field.module.css"; }
+.label { composes: label from "./Field.module.css"; }
+.required { composes: required from "./Field.module.css"; }
+.hint { composes: hint from "./Field.module.css"; }
+.control { composes: control from "./Field.module.css"; }
+.invalid { composes: invalid from "./Field.module.css"; }
+.error { composes: error from "./Field.module.css"; }
+.errorIcon { composes: errorIcon from "./Field.module.css"; }

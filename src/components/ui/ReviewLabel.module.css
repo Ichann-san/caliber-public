@@ -1,0 +1,29 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 1.5rem;
+  padding: 0.125rem var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-chip);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dashed outline: an open question, distinct from a filled status chip. */
+.unreviewed {
+  background: var(--tone-attention-tint);
+  border-color: var(--tone-attention-line);
+  border-style: dashed;
+  color: var(--tone-attention-text);
+}
+
+.reviewed {
+  background: var(--color-surface);
+  border-color: var(--tone-success-line);
+  color: var(--tone-success-text);
+}
